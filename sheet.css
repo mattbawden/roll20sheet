@@ -195,6 +195,10 @@ h2 em {
     color: cyan;
 }
 
+img {
+    height: 100px;
+}
+
 .col1-skills label,
 .col1-quirks label {
     font-size: 16px;
