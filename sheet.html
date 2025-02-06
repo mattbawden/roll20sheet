@@ -1,19 +1,17 @@
 <div class="grid biggap">
 
-    <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/talislantalogo.png" />
-
-    <h1>Talislanta</h1>
+    <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/talislantalogo.png" />
 
     <div class="grid col2-roll">
         <div class="grid col4-name">
             <label>Name</label>
-            <input type="text" name="attr_character_name" value="" />
+            <input type="text" name="attr_charactername" value="" />
             <label>Race</label>
-            <input type="text" name="attr_character_race" value="" />
+            <input type="text" name="attr_characterrace" value="" />
             <label>Gender</label>
-            <input type="text" name="attr_character_gender" value="" />
+            <input type="text" name="attr_charactergender" value="" />
             <label>Order</label>
-            <select name="attr_character_order">
+            <select name="attr_characterorder">
                 <option value="">Choose</option>
                 <option value="astromancy">Astromancy</option>
                 <option value="cartomancy">Cartomancy</option>
@@ -139,8 +137,8 @@
     <div class="grid special-buttons">
         <h2>Attribute Actions</h2>
         <div class="grid col4">
-            <button type="roll" name="roll_initiative" class="initiative" value="&{template:default} {{name=Initiative}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] &{tracker}]]}}" />
-            <button type="roll" name="roll_critical" class="critical" value="&{template:default} {{name=Critical Hit}} {{Check Result=[[1d20 + (@{Constitution}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DR or Attack|0} [Damage]]]}} {{--------=--------}} {{Critical/Full 11+=Unhindered}} {{Partial 6-10=-5 All Actions}} {{Failure 1-5=Unconscious}} {{Mishap 0 or below=Unconscious }}" />
+            <button type="roll" name="roll_initiative" class="initiative" value="&{template:custom} {{title=Initiative}} {{subtitle=@{charactername}}} {{Initiative Total=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] &{tracker}]]}}" />
+            <button type="roll" name="roll_critical" class="critical" value="&{template:custom} {{critroll=true}} {{title=Critical Hit}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{Constitution}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DR or Attack|0} [Damage]]]}}" />
             <button type="roll" name="roll_chase" class="chase" value="&{template:default} {{name=Pursuit}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{Movement Rate=@{movementrate|Max} ft.}} {{Terrain Familiarity=None}} {{--------=--------}} {{Critical 20+=Movement Rate +50ft.}} {{Full 11-19=Movement Rate}} {{Partial 6-10=Half Movement Rate}} {{Failure 1-5=Stumble and fall, move next round}} {{Mishap 0 or below= You’re injured and cannot continue next round}}" />
             <button type="roll" name="roll_reaction" class="reaction" value="&{template:default} {{name=Reaction}} {{Check Result=[[1d20 + (@{Charisma}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{--------=--------}} {{ Critical 20+=Additional Aid/Info }} {{ Full 11-19=Aid/Info Given }} {{ Partial 6-10=Aid/Info w/ Bribe }} {{ Failure 1-5=Ignored }} {{ Mishap 0 or below=NPC Slanders/Mugs PC }}" />
         </div>
@@ -388,10 +386,10 @@
 
                 <input type="number" name="attr_weaponskillrank" value="" />
 
-                <input type="number" name="attr_weaponrange" value="" />
+                <input type="number" name="attr_weapondr" value="" />
 
-                <button type="roll" name="roll_attack" value="&{template:default} {{name=Attack | @{weaponname}}} {{Check Result=[[1d20 + (@{weaponstat}) [Attribute] + @{weaponskillrank} + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-
+                <button type="roll" name="roll_attack" value="&{template:custom} {{standardroll=true}} {{title=Attack | @{weaponname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{weaponstat}) [Attribute] + @{weaponskillrank} + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{Base Damage=[[@{weapondr}]]}}" />
+            
             </div>
         </fieldset>
     </div>
@@ -448,70 +446,39 @@
     </div>
 </div>
 
-<rolltemplate class="sheet-rolltemplate-action">
-    <span class="hidden-score" data-i18n-placeholder="{{score}}"></span>
-    <div class="container">
-        <h1>{{name}} ro<em>lls</em>
-            {{#score}}
-                <span class="hidden stamina">Stamina</span>repeat
-                <span class="hidden will">Will</span>
-                <span class="hidden lore">Lore</span>
-                <span class="hidden humanity">Humanity</span>
-                <span class="hidden power">Power</span>
-                <span class="hidden cover">Cover</span>
-                <em>{{score_num}}</em>
-            {{/score}}</h1>
-    </div>
-    <div class="results">
-        <!-- result 1 -->
-        {{#rollGreater() dice_num 0}}
-            <div class="result">{{result_1}}</div>
-        {{/rollGreater() dice_num 0}}
-
-        <!-- result 2 -->
-        {{#rollGreater() dice_num 1}}
-            <div class="result">{{result_2}}</div>
-        {{/rollGreater() dice_num 1}}
-
-        <!-- result 3 -->
-        {{#rollGreater() dice_num 2}}
-            <div class="result">{{result_3}}</div>
-        {{/rollGreater() dice_num 2}}
-
-        <!-- result 4 -->
-        {{#rollGreater() dice_num 3}}
-            <div class="result">{{result_4}}</div>
-        {{/rollGreater() dice_num 3}}
-
-        <!-- result 5 -->
-        {{#rollGreater() dice_num 4}}
-            <div class="result">{{result_5}}</div>
-        {{/rollGreater() dice_num 4}}
-
-        <!-- result 6 -->
-        {{#rollGreater() dice_num 5}}
-            <div class="result">{{result_6}}</div>
-        {{/rollGreater() dice_num 5}}
-
-        <!-- result 7 -->
-        {{#rollGreater() dice_num 6}}
-            <div class="result">{{result_7}}</div>
-        {{/rollGreater() dice_num 6}}
-
-        <!-- result 8 -->
-        {{#rollGreater() dice_num 7}}
-            <div class="result">{{result_8}}</div>
-        {{/rollGreater() dice_num 7}}
-
-        <!-- result 9 -->
-        {{#rollGreater() dice_num 8}}
-            <div class="result">{{result_9}}</div>
-        {{/rollGreater() dice_num 8}}
-
-        <!-- result 10 -->
-        {{#rollGreater() dice_num 9}}
-            <div class="result">{{result_10}}</div>
-        {{/rollGreater() dice_num 9}}
+<rolltemplate class="sheet-rolltemplate-custom">
+    <div class="sheet-container sheet-color-{{color}}">
+        <div class="sheet-header">
+            {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+            {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+        </div>
+        <div class="sheet-content">
+            {{#allprops() title subtitle desc color standardroll critroll}}
+            <div class="sheet-key">{{key}}</div>
+            <div class="sheet-value">{{value}}</div>
+            {{/allprops() title subtitle desc color standardroll critroll}}
+            {{#standardroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap!</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical!</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+            {{/standardroll}}
+            {{^standardroll}}
+                {{#critroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! You are unconscious</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! You are unconscious</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - minus 5 to all rolls</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! You are unhindered</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! You are unhindered</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/critroll}}
+            {{/standardroll}}
+            {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+        </div>
     </div>
 </rolltemplate>
 

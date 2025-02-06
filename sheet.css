@@ -213,85 +213,147 @@ img {
     color: cyan;
 }
 
-/* demons */
-
-.demon-sheet[value="1"] ~ div .sorcerer {
-    display: none;
-}
-.demon-sheet:not([value="1"]) ~ div .demon {
-    display: none;
-}
-
 /* templates */
-.sheet-rolltemplate-action {
-    background-color: black;
-    border: solid 5px white;
+/* Smaller margins - remove these if you want the huge default left margin */
+.sheet-rolltemplate-custom {
+    margin-left: -37px;
+}
+.withoutavatars .sheet-rolltemplate-custom {
+    margin-left: -7px;
+}
+  
+.sheet-rolltemplate-custom .sheet-container {
+    border: 1px solid;
+    /* by default, the border is the same color as the header. You can change this here, e.g. to black */
+    border-color: var(--header-bg-color);
+}
+  
+/* Header formatting - title and subtitle */
+.sheet-rolltemplate-custom .sheet-header {
+    background-color: var(--header-bg-color);
+    /* change text-align to center to center the header text */
+    text-align: left;
+    color: var(--header-text-color);
+    font-weight: bold;
     padding: 5px;
-    box-sizing: border-box;
 }
-.sheet-rolltemplate-action h1,
-.sheet-rolltemplate-action div {
-    font-family: "DM Mono", serif;
-    color: white;
+.sheet-rolltemplate-custom .sheet-title {
+    font-size:1.1em;
 }
-.sheet-rolltemplate-action h1 {
-    width: fit-content;
-    background-color: red;
-    color: black;
-    padding: 2px;
-    font-size: 30px;
-    line-height: 30px;
+.sheet-rolltemplate-custom .sheet-subtitle {
+    font-size:.9em;
 }
-.sheet-rolltemplate-action h1 em {
-    font-style: normal;
-    background-color: black;
-    color: red;
+  
+/* example colors */
+.sheet-rolltemplate-custom .sheet-container {
+    /* this is the default color */
+    --header-bg-color: rgba(112,32,130,1);
+    --header-text-color: #FFF;
+    --content-text-color: #000;
 }
-.sheet-rolltemplate-action .sheet-results {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    justify-items: center;
-    margin: 5px 0;
+.sheet-rolltemplate-custom .sheet-container.sheet-color-red {
+    --header-bg-color: #F00;
 }
-.sheet-rolltemplate-action .sheet-result {
-    position: relative;
+.sheet-rolltemplate-custom .sheet-container.sheet-color-green {
+    --header-bg-color: #0F0;
+    --header-text-color: #000;
+}
+  
+/* Allprops part */
+.sheet-rolltemplate-custom .sheet-content {
+    display: grid;
+    background: #FFF;
+    color: var(--content-text-color);
+    /* Header formatting - modify the column layout below */
+    grid-template-columns: auto auto;
+    /* Line height to match default roll template */
+    line-height:1.4em;
+}
+.sheet-rolltemplate-custom .sheet-content > div {
+    padding: 5px;
+}
+  
+/* Left column */
+.sheet-rolltemplate-custom .sheet-content .sheet-key {
+    font-weight: bold;
+    padding-right: 10px;
+    text-align: right;
+}
+  
+/* Right column */ 
+.sheet-rolltemplate-custom .sheet-value .inlinerollresult {
+    font-weight: bold;
+    color: #FFF;
+}
+
+  
+/* Make even-numbered rows grey */
+.sheet-rolltemplate-custom .sheet-content :nth-child(4n+3),
+.sheet-rolltemplate-custom .sheet-content :nth-child(4n) {
+    background:#EEE;
+}
+
+/* Result field */
+.sheet-rolltemplate-custom .sheet-result {
+    grid-column: span 2;
+    padding: 5px;
     text-align: center;
-    padding: 5px 0 0 0;
-    width: 40px;
-    height: 40px;
-}
-.sheet-rolltemplate-action .sheet-result::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-family: "dicefontd20";
-    content: '0';
-    font-size: 50px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
-.sheet-rolltemplate-action .inlinerollresult,
-.sheet-rolltemplate-action .inlinerollresult.fullcrit,
-.sheet-rolltemplate-action .inlinerollresult.fullfail,
-.sheet-rolltemplate-action .inlinerollresult.importantroll {
-    background: none;
-    color: white;
-    border: none;
+/* Specific results */
+.sheet-rolltemplate-custom .sheet-result .sheet-mishap {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #F00;
+    font-size: 16px;
 }
 
-.sheet-rolltemplate-action .sheet-hidden {
-    display: none;
-}
-.sheet-rolltemplate-action .sheet-hidden-score[data-i18n-placeholder*=Stamina] ~ .sheet-container .sheet-stamina,
-.sheet-rolltemplate-action .sheet-hidden-score[data-i18n-placeholder*=Will] ~ .sheet-container .sheet-will,
-.sheet-rolltemplate-action .sheet-hidden-score[data-i18n-placeholder*=Lore] ~ .sheet-container .sheet-lore,
-.sheet-rolltemplate-action .sheet-hidden-score[data-i18n-placeholder*=Humanity] ~ .sheet-container .sheet-humanity,
-.sheet-rolltemplate-action .sheet-hidden-score[data-i18n-placeholder*=Power] ~ .sheet-container .sheet-power,
-.sheet-rolltemplate-action .sheet-hidden-score[data-i18n-placeholder*=Cover] ~ .sheet-container .sheet-cover {
-    display: inline-block;
+.sheet-rolltemplate-custom .sheet-result .sheet-failure {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: goldenrod;
+    font-size: 16px;
 }
 
+.sheet-rolltemplate-custom .sheet-result .sheet-partialsuccess {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: darkorange;
+    font-size: 16px;
+}
+
+.sheet-rolltemplate-custom .sheet-result .sheet-fullsuccess {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: cornflowerblue;
+    font-size: 16px;
+}
+
+.sheet-rolltemplate-custom .sheet-result .sheet-critical {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #0F0;
+    font-size: 16px;
+}
+  
+/* Description field */
+.sheet-rolltemplate-custom .sheet-desc {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+}
 
 /* arrows */
 /* Chrome, Safari, Edge, Opera */
@@ -304,74 +366,5 @@ body .charactersheet input::-webkit-inner-spin-button {
 /* Firefox */
 body .charactersheet input[type=number] {
   -moz-appearance: textfield;
-}
-
-/* sliders */
-
-/* The switch - the box around the slider */
-body .charactersheet label.switch {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: inline-block;
-  width: 80px;
-  height: 24px;
-  margin: 0;
-  padding: 0;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: black;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "Sorcerer";
-  height: 16px;
-  width: 46px;
-  left: 4px;
-  bottom: 4px;
-  text-align: center;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: red;
-}
-
-input:focus + .slider {
-  xbox-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  content: "Demon";
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+  appearance: textfield;
 }
