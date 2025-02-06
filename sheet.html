@@ -1,0 +1,569 @@
+<div class="grid biggap">
+
+    <h1>Talislanta</h1>
+
+    <div class="grid col2-roll">
+        <div class="grid col4-name">
+            <label>Name</label>
+            <input type="text" name="attr_character_name" value="" />
+            <label>Race</label>
+            <input type="text" name="attr_character_race" value="" />
+            <label>Gender</label>
+            <input type="text" name="attr_character_gender" value="" />
+            <label>Order</label>
+            <select name="attr_character_order">
+                <option value="">Choose</option>
+                <option value="astromancy">Astromancy</option>
+                <option value="cartomancy">Cartomancy</option>
+                <option value="cryptomancy">Cryptomancy</option>
+                <option value="crystalomancy">Crystalomancy</option>
+                <option value="elementalmagic">Elemental Magic</option>
+                <option value="invocation">Invocation</option>
+                <option value="mysticism">Mysticism</option>
+                <option value="naturalmagic">Natural Magic</option>
+                <option value="necromancy">Necromancy</option>
+                <option value="shamanism">Shamanism</option>
+                <option value="witchcraft">Witchcraft</option>
+                <option value="wizardry">Wizardry</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="grid col2">
+        <div class="grid col1">
+            <h2>Attributes</h2>
+            <div class="grid col2-stats">
+                <div class="flex">
+                    <label>INT</label>
+                    <input type="number" name="attr_intelligence" value="0" />
+                    <button type="roll" name="roll_intelligence" value="&{template:default} {{name=Attribute | Intelligence}} {{Check Result=[[1d20 + (@{Intelligence}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>PER</label>
+                    <input type="number" name="attr_perception" value="0" />
+                    <button type="roll" name="roll_perception" value="&{template:default} {{name=Attribute | Perception}} {{Check Result=[[1d20 + (@{Perception}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>WIL</label>
+                    <input type="number" name="attr_will" value="0" />
+                    <button type="roll" name="roll_will" value="&{template:default} {{name=Attribute | Will}} {{Check Result=[[1d20 + (@{Will}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+                
+                <div class="flex">
+                    <label>CHA</label>
+                    <input type="number" name="attr_charisma" value="0" />
+                    <button type="roll" name="roll_charisma" value="&{template:default} {{name=Attribute | Charisma}} {{Check Result=[[1d20 + (@{Charisma}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>STR</label>
+                    <input type="number" name="attr_strength" value="0" />
+                    <button type="roll" name="roll_strength" value="&{template:default} {{name=Attribute | Strength}} {{Check Result=[[1d20 + (@{Strength}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>DEX</label>
+                    <input type="number" name="attr_dexterity" value="0" />
+                    <button type="roll" name="roll_dexterity" value="&{template:default} {{name=Attribute | Dexterity}} {{Check Result=[[1d20 + (@{Dexterity}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>CON</label>
+                    <input type="number" name="attr_constitution" value="0" />
+                    <button type="roll" name="roll_constitution" value="&{template:default} {{name=Attribute | Constitution}} {{Check Result=[[1d20 + (@{Constitution}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>SPD</label>
+                    <input type="number" name="attr_speed" value="0" />
+                    <button type="roll" name="roll_speed" value="&{template:default} {{name=Attribute | Speed}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                </div>
+
+                <div class="flex">
+                    <label>CCR</label>
+                    <input type="number" name="attr_combatrating" value="0" />
+                </div>
+
+                <div class="flex">
+                    <label>RCR</label>
+                    <input type="number" name="attr_rangedcr" value="0" />
+                </div>
+
+                <div class="flex">
+                    <label>MMR</label>
+                    <input type="number" name="attr_magicrating" value="0" />
+                </div>
+            </div>
+        </div>
+
+        <div class="grid col1">
+            
+            <label>Appearance</label>
+            <textarea name="attr_appearance"></textarea>
+
+            <label>Paths Followed</label>
+            <textarea name="attr_paths"></textarea>
+        </div>
+    </div>
+
+    <div class="grid col1">
+        <div class="grid col5">
+            <label>Hit Points</label>
+            
+
+            <label>Movement Rate</label>
+           
+
+            <label>Protection Rating</label>
+            
+
+            <label>Current Lethal Damage</label>
+            
+
+            <label>Current Subdual Damage</label>
+            
+        </div>
+        <div class="grid col5">
+            <input type="number" name="attr_charhp" value="0" />
+            <input type="number" name="attr_movementrate" value="50" />
+            <input type="number" name="attr_charpr" value="0" />
+            <input type="number" name="attr_charlethal" value="0" />
+            <input type="number" name="attr_charsubdual" value="0" />
+        </div>
+    </div>
+
+    <div class="grid special-buttons">
+        <h2>Attribute Actions</h2>
+        <div class="grid col4">
+            <button type="roll" name="roll_initiative" class="initiative" value="&{template:default} {{name=Initiative}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] &{tracker}]]}}" />
+            <button type="roll" name="roll_critical" class="critical" value="&{template:default} {{name=Critical Hit}} {{Check Result=[[1d20 + (@{Constitution}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DR or Attack|0} [Damage]]]}} {{--------=--------}} {{Critical/Full 11+=Unhindered}} {{Partial 6-10=-5 All Actions}} {{Failure 1-5=Unconscious}} {{Mishap 0 or below=Unconscious }}" />
+            <button type="roll" name="roll_chase" class="chase" value="&{template:default} {{name=Pursuit}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{Movement Rate=@{movementrate|Max} ft.}} {{Terrain Familiarity=None}} {{--------=--------}} {{Critical 20+=Movement Rate +50ft.}} {{Full 11-19=Movement Rate}} {{Partial 6-10=Half Movement Rate}} {{Failure 1-5=Stumble and fall, move next round}} {{Mishap 0 or below= You’re injured and cannot continue next round}}" />
+            <button type="roll" name="roll_reaction" class="reaction" value="&{template:default} {{name=Reaction}} {{Check Result=[[1d20 + (@{Charisma}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{--------=--------}} {{ Critical 20+=Additional Aid/Info }} {{ Full 11-19=Aid/Info Given }} {{ Partial 6-10=Aid/Info w/ Bribe }} {{ Failure 1-5=Ignored }} {{ Mishap 0 or below=NPC Slanders/Mugs PC }}" />
+        </div>
+    </div>
+
+    <div class="grid col1-skills">
+        <h2>Skills</h2>
+        <div class="grid col4">
+            <label>Name</label>
+
+            <label>Subskill</label>
+
+            <label>Stat</label>
+
+            <label>Rank</label>
+        </div>
+        <fieldset class="repeating_skills">
+            <div class="grid col4">
+                <select name="attr_skillname">
+                    <option value="">Choose</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; COMMON</option>
+                    <option value="climbing">Climbing</option>
+                    <option value="conveyance">Conveyance</option>
+                    <option value="cook">Cook</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="haggle">Haggle</option>
+                    <option value="ride">Ride</option>
+                    <option value="signal">Signal</option>
+                    <option value="swim">Swim</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; LANGUAGE</option>
+                    <option value="hightalislan">High Talislan</option>
+                    <option value="lowtalislan">Low Talislan</option>
+                    <option value="archaen">Archaen</option>
+                    <option value="bodorian">Bodorian</option>
+                    <option value="chanan">Chanan</option>
+                    <option value="elder">Elder</option>
+                    <option value="nomadic">Nomadic</option>
+                    <option value="northron">Northron</option>
+                    <option value="phaedran">Phaedran</option>
+                    <option value="quan">Quan</option>
+                    <option value="racialtongues">Racial Tongues</option>
+                    <option value="rajanin">Rajanin</option>
+                    <option value="sarisa">Sarisa</option>
+                    <option value="seanomad">Sea Nomad</option>
+                    <option value="sign">Sign</option>
+                    <option value="thaecian">Thaecian</option>
+                    <option value="xambrian">Xambrian</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; COMBAT</option>
+                    <option value="artillerist">Artillerist</option>
+                    <option value="assassinate">Assassinate</option>
+                    <option value="brawling">Brawling</option>
+                    <option value="command">Command</option>
+                    <option value="evade">Evade</option>
+                    <option value="guard">Guard</option>
+                    <option value="tactics">Tactics</option>
+                    <option value="bow">Bow</option>
+                    <option value="crossbow">Crossbow</option>
+                    <option value="spring">Spring</option>
+                    <option value="thrown">Thrown</option>
+                    <option value="smallblades">Small Blades</option>
+                    <option value="largeblades">Large Blades</option>
+                    <option value="hafted">Hafted</option>
+                    <option value="2hblades">2H Blades</option>
+                    <option value="2hhafted">2H Hafted</option>
+                    <option value="flails">Flails</option>
+                    <option value="polearms">Polearms</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; PERFORMING</option>
+                    <option value="acrobatics">Acrobatics</option>
+                    <option value="acting">Acting</option>
+                    <option value="art">Art</option>
+                    <option value="dance">Dance</option>
+                    <option value="legerdemain">Legerdemain</option>
+                    <option value="mimicry">Mimicry</option>
+                    <option value="oratory">Oratory</option>
+                    <option value="song">Song</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; SCHOLARLY</option>
+                    <option value="analysis">Analysis</option>
+                    <option value="anatomy">Anatomy</option>
+                    <option value="antiquarian">Antiquarian</option>
+                    <option value="arcanelore">Arcane Lore</option>
+                    <option value="astrology">Astrology</option>
+                    <option value="cartography">Cartography</option>
+                    <option value="cultures">Cultures</option>
+                    <option value="cryptography">Cryptography</option>
+                    <option value="doctrines">Doctrines</option>
+                    <option value="engineer">Engineer</option>
+                    <option value="gamecraft">Gamecraft</option>
+                    <option value="geography">Geography</option>
+                    <option value="history">History</option>
+                    <option value="linguistics">Linguistics</option>
+                    <option value="litigator">Litigator</option>
+                    <option value="meditation">Meditation</option>
+                    <option value="naturalism">Naturalism</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; THIEVING</option>
+                    <option value="bribe">Bribe</option>
+                    <option value="coerce">Coerce</option>
+                    <option value="deception">Deception</option>
+                    <option value="disabledevice">Disable Device</option>
+                    <option value="espionage">Espionage</option>
+                    <option value="forgery">Forgery</option>
+                    <option value="gambling">Gambling</option>
+                    <option value="interrogate">Interrogate</option>
+                    <option value="legerdemain">Legerdemain</option>
+                    <option value="lipreading">Lip-Reading</option>
+                    <option value="sabotage">Sabotage</option>
+                    <option value="seduce">Seduce</option>
+                    <option value="stealth">Stealth</option>
+                    <option value="streetwise">Streetwise</option>
+                    <option value="torture">Torture</option>
+                    <option value="traps">Traps</option>
+                    <option value="underworld">Underworld</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; TRADE</option>
+                    <option value="administrator">Administrator</option>
+                    <option value="agriculture">Agriculture</option>
+                    <option value="animalhandler">Animal Handler</option>
+                    <option value="appraiser">Appraiser</option>
+                    <option value="caravanmaster">Caravan Master</option>
+                    <option value="fishing">Fishing</option>
+                    <option value="handicraft">Handicraft</option>
+                    <option value="healer">Healer</option>
+                    <option value="laborer">Laborer</option>
+                    <option value="livestock">Livestock</option>
+                    <option value="merchant">Merchant</option>
+                    <option value="mining">Mining</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="salvager">Salvager</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; WILDERNESS</option>
+                    <option value="guide">Guide</option>
+                    <option value="herblore">Herb Lore</option>
+                    <option value="mimicry">Mimicry</option>
+                    <option value="scout">Scout</option>
+                    <option value="tracking">Tracking</option>
+                    <option value="traps">Traps</option>
+                    <option value="survival">Survival</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; MAGICAL</option>
+                    <option value="alchemy">Alchemy</option>
+                    <option value="botanomancy">Botanomancy</option>
+                    <option value="modeattack">Mode (attack)</option>
+                    <option value="modeconjuration">Mode (conjuration)</option>
+                    <option value="modedivination">Mode (divination)</option>
+                    <option value="modeenchantment">Mode (enchantment)</option>
+                    <option value="modeinfluence">Mode (influence)</option>
+                    <option value="modeillusion">Mode (illusion)</option>
+                    <option value="modemove">Mode (move)</option>
+                    <option value="modetransmutation">Mode (transmutation)</option>
+                    <option value="modeward">Mode (ward)</option>
+                    <option value="talismancy">Talismancy</option>
+                    <option value="technomancy">Technomancy</option>
+                    <option value="thamaturgy">Thamaturgy</option>
+                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; SPECIAL</option>
+                    <option value="beastlore">Beast Lore</option>
+                    <option value="dispelmagic">Dispel Magic</option>
+                    <option value="influenceplants">Influence Plants</option>
+                    <option value="naturaltelempathy">Natural Telempathy</option>
+                    <option value="rhabdomancy">Rhabdomancy</option>
+                    <option value="shapechange">Shapechange</option>
+                </select>
+
+                <input type="text" name="attr_subskill" value="" />
+
+                <input type="text" list="abilityScores" name="attr_abilityscore">
+                <datalist id="abilityScores">Attribute
+                    <option value="@{Intelligence}">INT</option>
+                    <option value="@(Perception)">PER</option>
+                    <option value="@{Will}">WIL</option>
+                    <option value="@{Charisma}">CHA</option>
+                    <option value="@{Strength}">STR</option>
+                    <option value="@{Dexterity}">DEX</option>
+                    <option value="@{Constitution}">CON</option>
+                    <option value="@{Speed}">SPD</option>
+                    <option value="@{combatrating}">CCR</option>
+                    <option value="@{rangedcr}">RCR</option>
+                    <option value="@{magicrating}">MMR</option>
+                </datalist>
+
+                <input type="number" name="attr_skillrank" value="0" />
+                <button type="roll" name="roll_skill" value="&{template:default} {{name=Skill | @{skillname}}} {{Check Result=[[1d20 + (@{abilityscore}) [Attribute] + @{skillrank} + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="grid col1-quirks">
+        <h2>Quirks</h2>
+        <div class="grid col3">
+            <label>Quirk</label>
+
+            <label>Description</label>
+
+            <label>Type</label>
+        </div>
+        <fieldset class="repeating_abilities">
+            <div class="grid col3">
+                <input type="text" name="attr_quirkname" value="" />
+
+                <input type="text" name="attr_quirkdesc" value="" />
+
+                <select name="attr_quirktype">
+                    <option value="">Choose</option>
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                </select>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="grid col1-weapons">
+        <h2>Combat Weapons</h2>
+        <div class="grid col6">
+            <label>Name</label>
+
+            <label>Skill Type</label>
+
+            <label>Stat</label>
+
+            <label>Rank</label>
+
+            <label>DR</label>
+        </div>
+        <fieldset class="repeating_weapons">
+            <div class="grid col6">
+                <input type="text" name="attr_weaponname" value="" />
+
+                <select name="attr_skilltype">
+                    <option value="">Choose</option>
+                    <option value="bow">Bow</option>
+                    <option value="crossbow">Crossbow</option>
+                    <option value="spring">Spring</option>
+                    <option value="thrown">Thrown</option>
+                    <option value="smallblades">Small Blades</option>
+                    <option value="largeblades">Large Blades</option>
+                    <option value="hafted">Hafted</option>
+                    <option value="2hblades">2H Blades</option>
+                    <option value="2hhafted">2H Hafted</option>
+                    <option value="flails">Flails</option>
+                    <option value="polearms">Polearms</option>
+                    <option value="brawling">Brawling</option>
+                    <option value="assassinate">Assassinate</option>
+                </select>
+
+                <input type="text" list="abilityScores" name="attr_weaponstat">
+                <datalist id="abilityScores">Attribute
+                    <option value="@{combatrating}">CCR</option>
+                    <option value="@{rangedcr}">RCR</option>
+                </datalist>
+
+                <input type="number" name="attr_weaponskillrank" value="" />
+
+                <input type="number" name="attr_weaponrange" value="" />
+
+                <button type="roll" name="roll_attack" value="&{template:default} {{name=Attack | @{weaponname}}} {{Check Result=[[1d20 + (@{weaponstat}) [Attribute] + @{weaponskillrank} + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="grid col1-equipment">
+        <h2>Equipment</h2>
+        <div class="grid col6">
+            <label>Name</label>
+
+            <label>Type</label>
+
+            <label>Min STR</label>
+
+            <label>DR/PR</label>
+
+            <label>Max DR</label>
+
+            <label>Range</label>
+        </div>
+        <fieldset class="repeating_equipment">
+            <div class="grid col6">
+                <input type="text" name="attr_equipname" value="" />
+
+                <select name="attr_equiptype">
+                    <option value="">Choose</option>
+                    <option value="general">General</option>
+                    <option value="parry">Parry</option>
+                    <option value="armour">Armour</option>
+                    <option value="bow">Bow</option>
+                    <option value="crossbow">Crossbow</option>
+                    <option value="spring">Spring</option>
+                    <option value="thrown">Thrown</option>
+                    <option value="smallblades">Small Blades</option>
+                    <option value="largeblades">Large Blades</option>
+                    <option value="hafted">Hafted</option>
+                    <option value="2hblades">2H Blades</option>
+                    <option value="2hhafted">2H Hafted</option>skillname
+                    <option value="flails">Flails</option>
+                    <option value="polearms">Polearms</option>
+                    <option value="brawling">Brawling</option>
+                    <option value="assassinate">Assassinate</option>
+                    <option value="unique">Special Equipment</option>
+                </select>
+
+                <input type="number" name="attr_minstr" value="" />
+
+                <input type="number" name="attr_drpr" value="" />
+
+                <input type="number" name="attr_maxdr" value="" />
+
+                <input type="number" name="attr_range" value="" />
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-action">
+    <span class="hidden-score" data-i18n-placeholder="{{score}}"></span>
+    <div class="container">
+        <h1>{{name}} ro<em>lls</em>
+            {{#score}}
+                <span class="hidden stamina">Stamina</span>repeat
+                <span class="hidden will">Will</span>
+                <span class="hidden lore">Lore</span>
+                <span class="hidden humanity">Humanity</span>
+                <span class="hidden power">Power</span>
+                <span class="hidden cover">Cover</span>
+                <em>{{score_num}}</em>
+            {{/score}}</h1>
+    </div>
+    <div class="results">
+        <!-- result 1 -->
+        {{#rollGreater() dice_num 0}}
+            <div class="result">{{result_1}}</div>
+        {{/rollGreater() dice_num 0}}
+
+        <!-- result 2 -->
+        {{#rollGreater() dice_num 1}}
+            <div class="result">{{result_2}}</div>
+        {{/rollGreater() dice_num 1}}
+
+        <!-- result 3 -->
+        {{#rollGreater() dice_num 2}}
+            <div class="result">{{result_3}}</div>
+        {{/rollGreater() dice_num 2}}
+
+        <!-- result 4 -->
+        {{#rollGreater() dice_num 3}}
+            <div class="result">{{result_4}}</div>
+        {{/rollGreater() dice_num 3}}
+
+        <!-- result 5 -->
+        {{#rollGreater() dice_num 4}}
+            <div class="result">{{result_5}}</div>
+        {{/rollGreater() dice_num 4}}
+
+        <!-- result 6 -->
+        {{#rollGreater() dice_num 5}}
+            <div class="result">{{result_6}}</div>
+        {{/rollGreater() dice_num 5}}
+
+        <!-- result 7 -->
+        {{#rollGreater() dice_num 6}}
+            <div class="result">{{result_7}}</div>
+        {{/rollGreater() dice_num 6}}
+
+        <!-- result 8 -->
+        {{#rollGreater() dice_num 7}}
+            <div class="result">{{result_8}}</div>
+        {{/rollGreater() dice_num 7}}
+
+        <!-- result 9 -->
+        {{#rollGreater() dice_num 8}}
+            <div class="result">{{result_9}}</div>
+        {{/rollGreater() dice_num 8}}
+
+        <!-- result 10 -->
+        {{#rollGreater() dice_num 9}}
+            <div class="result">{{result_10}}</div>
+        {{/rollGreater() dice_num 9}}
+    </div>
+</rolltemplate>
+
+<script type="text/worker">
+
+    on("change:repeating_weapons:skilltype", function(eventinfo) {
+
+        const skilltype = eventinfo.newValue;
+        console.log(skilltype);
+        const rowid = eventinfo.sourceAttribute;
+        console.log(rowid);
+        let attrlength = rowid.length;
+        attrlength = attrlength - 9;
+        let updateid = rowid.substr(0,attrlength);
+        const weapskillrank = updateid.concat("weaponskillrank");
+        console.log(weapskillrank);
+
+        setAttrs({
+            repeating_weapons_weaponskillrank: 0
+        });
+
+        getSectionIDs('skills',function(idarray) {
+            const skillnames = [];
+            idarray.forEach(id => skillnames.push(`repeating_skills_${id}_skillname`));
+            console.log(skillnames);
+
+            getAttrs(skillnames, function(values) {
+                console.log(values);
+                console.log(eventinfo.newValue);
+                Object.keys(values).forEach(key => {
+                    console.log(key + ", " + values[key]);
+                    console.log(skilltype);
+                    if(values[key] == skilltype) {
+                        const skillid = key;
+                        console.log(skillid);
+                        let length = skillid.length;
+                        length = length - 9;
+                        let repeatid = skillid.substr(0,length);
+                        const skillrank = repeatid.concat("skillrank");
+                        console.log(skillrank);
+                        getAttrs([skillrank], function(values) {
+                            console.log(values);
+                            console.log(values[skillrank]);
+                            setAttrs({
+                                repeating_weapons_weaponskillrank: values[skillrank]
+                            });
+                        });
+                    }
+                });
+            });
+        });
+    
+    });
+    
+    // ... etc
+    
+</script>
