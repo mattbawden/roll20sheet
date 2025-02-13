@@ -1,0 +1,9 @@
+{
+    "html": "talislanta5e.html",
+    "css": "talislanta5e.css",
+    "authors": "Matt Bawden",
+    "roll20userid": "368584",
+    "preview": "talislanta5epreview.png",
+    "instructions": "**Talislanta 5e**\n\nThis sheet should be relatively self explanatory.\nWeapon skills will self populate in the Combat Weapons section but only if you select the skill type AFTER updating the skill in the skills section.",
+    "legacy": false
+}

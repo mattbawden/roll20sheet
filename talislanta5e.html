@@ -136,17 +136,35 @@
 
     <div class="grid special-buttons">
         <h2>Attribute Actions</h2>
-        <div class="grid col4">
-            <button type="roll" name="roll_initiative" class="initiative" value="&{template:custom} {{title=Initiative}} {{subtitle=@{charactername}}} {{Initiative Total=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] &{tracker}]]}}" />
-            <button type="roll" name="roll_critical" class="critical" value="&{template:custom} {{critroll=true}} {{title=Critical Hit}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{Constitution}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DR or Attack|0} [Damage]]]}}" />
-            <button type="roll" name="roll_chase" class="chase" value="&{template:default} {{name=Pursuit}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{Movement Rate=@{movementrate|Max} ft.}} {{Terrain Familiarity=None}} {{--------=--------}} {{Critical 20+=Movement Rate +50ft.}} {{Full 11-19=Movement Rate}} {{Partial 6-10=Half Movement Rate}} {{Failure 1-5=Stumble and fall, move next round}} {{Mishap 0 or below= You’re injured and cannot continue next round}}" />
-            <button type="roll" name="roll_reaction" class="reaction" value="&{template:default} {{name=Reaction}} {{Check Result=[[1d20 + (@{Charisma}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{--------=--------}} {{ Critical 20+=Additional Aid/Info }} {{ Full 11-19=Aid/Info Given }} {{ Partial 6-10=Aid/Info w/ Bribe }} {{ Failure 1-5=Ignored }} {{ Mishap 0 or below=NPC Slanders/Mugs PC }}" />
+        <div class="grid col4-buttons">
+            <button type="roll" name="roll_initiative" class="initiative" value="&{template:custom} {{title=Initiative}} {{subtitle=@{charactername}}} {{Initiative Total=[[1d20 + (@{speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] &{tracker}]]}}" />
+            <button type="roll" name="roll_critical" class="critical" value="&{template:custom} {{critroll=true}} {{title=Critical Hit}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{constitution}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DR or Attack|0} [Damage]]]}}" />
+            <button type="roll" name="roll_chase" class="chase" value="&{template:custom} {{pursuitroll=true}} {{title=Pursuit}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{Movement Rate=@{movementrate} ft.}}" />
+            <button type="roll" name="roll_reaction" class="reaction" value="&{template:custom} {{reactionroll=true}} {{title=Reaction}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{charisma}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}}" />
+        </div>
+    </div>
+
+    <div class="grid special-buttons">
+        <h2>Combat Tactics</h2>
+        <div class="grid col4-buttons">
+            <input type="hidden" name="attr_charEvade" value="0" />
+            <input type="hidden" name="attr_charAcrobatics" value="0" />
+            <input type="hidden" name="attr_charGuard" value="0" />
+            <input type="hidden" name="attr_charBrawl" value="0" />
+            <button type="roll" name="roll_grappleatk" class="grappleatk" value="&{template:custom} {{grappleatkroll=true}} {{title=Grapple Attack}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{combatrating}) [Attribute] + @{charBrawl} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_grappleesc" class="grappleesc" value="&{template:custom} {{grappleescroll=true}} {{title=Grapple Escape}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{combatrating}) [Attribute] + @{charBrawl} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_guard" class="parryguard" value="&{template:custom} {{parryroll=true}} {{title=Guard Parry}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{perception}) [Attribute] + @{charGuard} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_brawlparry" class="parrybrawl" value="&{template:custom} {{parryroll=true}} {{title=Brawl Parry}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}) [Attribute] + @{charBrawl} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_evade" class="dodgeevade" value="&{template:custom} {{dodgeroll=true}} {{title=Evade Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}) [Attribute] + @{charEvade} [Skill] + ?{Modifiers?|0} [Modifiers] + ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_acrododge" class="dodgeacro" value="&{template:custom} {{dodgeroll=true}} {{title=Acrobatics Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}) [Attribute] + @{charAcrobatics} - 5 [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_dexdodge" class="dodgedex" value="&{template:custom} {{dodgeroll=true}} {{title=Dex Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
+            <button type="roll" name="roll_crdodge" class="dodgecr" value="&{template:custom} {{dodgeroll=true}} {{title=CR Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{combatrating}) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
         </div>
     </div>
 
     <div class="grid col1-skills">
         <h2>Skills</h2>
-        <div class="grid col4">
+        <div class="grid col5-skills">
             <label>Name</label>
 
             <label>Subskill</label>
@@ -154,9 +172,13 @@
             <label>Stat</label>
 
             <label>Rank</label>
+
+            <label>Inherent Mod</label>
+
+            <label>Item Mod</label>
         </div>
         <fieldset class="repeating_skills">
-            <div class="grid col4">
+            <div class="grid col5-skills">
                 <select name="attr_skillname">
                     <option value="">Choose</option>
                     <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; COMMON</option>
@@ -315,7 +337,12 @@
                 </datalist>
 
                 <input type="number" name="attr_skillrank" value="0" />
-                <button type="roll" name="roll_skill" value="&{template:default} {{name=Skill | @{skillname}}} {{Check Result=[[1d20 + (@{abilityscore}) [Attribute] + @{skillrank} + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+
+                <input type="number" name="attr_inherentmod" value="0" />
+
+                <input type="number" name="attr_itemmod" value="0" />
+
+                <button type="roll" name="roll_skill" value="&{template:custom} {{standardroll=true}} {{title=Skill | @{skillname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{abilityscore}) [Attribute] + @{skillrank} [Skill] + @{inherentmod} [Inherent Mod] + @{itemmod} [Item Mod] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}}" />
             </div>
         </fieldset>
     </div>
@@ -346,7 +373,7 @@
 
     <div class="grid col1-weapons">
         <h2>Combat Weapons</h2>
-        <div class="grid col6">
+        <div class="grid col6-weapons">
             <label>Name</label>
 
             <label>Skill Type</label>
@@ -355,10 +382,12 @@
 
             <label>Rank</label>
 
+            <label>Item Mod</label>
+
             <label>DR</label>
         </div>
         <fieldset class="repeating_weapons">
-            <div class="grid col6">
+            <div class="grid col6-weapons">
                 <input type="text" name="attr_weaponname" value="" />
 
                 <select name="attr_skilltype">
@@ -384,19 +413,22 @@
                     <option value="@{rangedcr}">RCR</option>
                 </datalist>
 
-                <input type="number" name="attr_weaponskillrank" value="" />
+                <input type="number" name="attr_weaponskillrank" value="0" />
 
-                <input type="number" name="attr_weapondr" value="" />
+                <input type="number" name="attr_weaponitemmod" value="0" />
 
-                <button type="roll" name="roll_attack" value="&{template:custom} {{standardroll=true}} {{title=Attack | @{weaponname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{weaponstat}) [Attribute] + @{weaponskillrank} + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{Base Damage=[[@{weapondr}]]}}" />
+                <input type="number" name="attr_weapondr" value="0" />
+
+                <button type="roll" name="roll_attack" class="weapatk" value="&{template:custom} {{attackroll=true}} {{title=Attack | @{weaponname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + @{weaponstat} [Attribute] + @{weaponskillrank} [Skill] + @{weaponitemmod} [Item Mod] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{Base Damage=[[@{weapondr}]]}} {{Strength Damage=[[@{strength}]]}}" />
             
+                <button type="roll" name="roll_parry" class="weappar" value="&{template:custom} {{parryroll=true}} {{title=Parry | @{weaponname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + @{weaponstat} [Attribute] + @{weaponskillrank} [Skill] + @{weaponitemmod} [Item Mod] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}}" />
             </div>
         </fieldset>
     </div>
 
     <div class="grid col1-equipment">
         <h2>Equipment</h2>
-        <div class="grid col6">
+        <div class="grid col6-equipment">
             <label>Name</label>
 
             <label>Type</label>
@@ -410,7 +442,7 @@
             <label>Range</label>
         </div>
         <fieldset class="repeating_equipment">
-            <div class="grid col6">
+            <div class="grid col6-equipment">
                 <input type="text" name="attr_equipname" value="" />
 
                 <select name="attr_equiptype">
@@ -453,10 +485,10 @@
             {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
         </div>
         <div class="sheet-content">
-            {{#allprops() title subtitle desc color standardroll critroll}}
+            {{#allprops() title subtitle desc color standardroll attackroll critroll pursuitroll reactionroll dodgeroll parryroll grappleatkroll grappleescroll}}
             <div class="sheet-key">{{key}}</div>
             <div class="sheet-value">{{value}}</div>
-            {{/allprops() title subtitle desc color standardroll critroll}}
+            {{/allprops() title subtitle desc color standardroll attackroll critroll pursuitroll reactionroll dodgeroll parryroll grappleatkroll grappleescroll}}
             {{#standardroll}}
                 {{#Result}}<div class="sheet-result">
                     {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap!</span>{{/rollLess() Result 1}}
@@ -467,6 +499,15 @@
                 </div>{{/Result}}
             {{/standardroll}}
             {{^standardroll}}
+                {{#attackroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap!</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure!</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - half damage (rounded up)</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success!</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! Opponent must roll Critical Hit</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/attackroll}}
                 {{#critroll}}
                 {{#Result}}<div class="sheet-result">
                     {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! You are unconscious</span>{{/rollLess() Result 1}}
@@ -476,6 +517,60 @@
                     {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! You are unhindered</span>{{/rollGreater() Result 19}}
                 </div>{{/Result}}
                 {{/critroll}}
+                {{#pursuitroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! You fall and injure yourself, you cannot continue</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! You stumble and fall, try again next round</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - you travel half your Movement Rate</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! You travel your Movement Rate</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! Increase Movement Rate by 50ft</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/pursuitroll}}
+                {{#reactionroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! They will slander or mug you</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! You have been ignored</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - you will need to pay a bribe</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! You get the info or aid</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! You get additional info or aid</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/reactionroll}}
+                {{#dodgeroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! Off balance, opponent gets +2 to hit</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! Attacker rolls to hit</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - attacker rolls to hit</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! Attack is dodged</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! Attack is dodged and you get +2 to attack next round</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/dodgeroll}}
+                {{#parryroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! Off balance, -2 to next action</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! Attacker rolls to hit</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - attacker rolls to hit</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! Attack is parried</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! Attack is parried</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/parryroll}}
+                {{#grappleatkroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! Opponent recieves +5 to next attack</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! Failed to grab the defender</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - no leverage, cannot choke or throw and defender has +5 to escape</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! Hold achieved, can choke or throw with next action</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! Strong hold, defender has -5 to escape</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/grappleatkroll}}
+                {{#grappleescroll}}
+                {{#Result}}<div class="sheet-result">
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap! You have -5 to the next attempt to escape</span>{{/rollLess() Result 1}}
+                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure! You remain in the hold</span>{{/rollBetween() Result 1 5}}
+                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success - you loosen the hold and have +5 to your next escape</span>{{/rollBetween() Result 6 10}}
+                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success! You escape the hold</span>{{/rollBetween() Result 11 19}}
+                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical! Perfect reversal, make an immediate grapple attack or move away</span>{{/rollGreater() Result 19}}
+                </div>{{/Result}}
+                {{/grappleescroll}}
             {{/standardroll}}
             {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
         </div>
@@ -483,6 +578,36 @@
 </rolltemplate>
 
 <script type="text/worker">
+
+    on("change:repeating_skills:skillrank", function(eventinfo) {
+        getAttrs(["repeating_skills_skillname"], function(values) {
+            let updateValue = 0;
+            if(values.repeating_skills_skillname == "evade") {
+                updateValue = eventinfo.newValue;
+                setAttrs({
+                    "charEvade": updateValue
+                });
+            }
+            else if(values.repeating_skills_skillname == "acrobatics") {
+                updateValue = eventinfo.newValue;
+                setAttrs({
+                    "charAcrobatics": updateValue
+                });
+            }
+            else if(values.repeating_skills_skillname == "guard") {
+                updateValue = eventinfo.newValue;
+                setAttrs({
+                    "charGuard": updateValue
+                });
+            }
+            else if(values.repeating_skills_skillname == "brawling") {
+                updateValue = eventinfo.newValue;
+                setAttrs({
+                    "charBrawl": updateValue
+                });
+            }            
+        });
+    });
 
     on("change:repeating_weapons:skilltype", function(eventinfo) {
 
@@ -532,7 +657,5 @@
         });
     
     });
-    
-    // ... etc
     
 </script>

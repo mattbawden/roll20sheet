@@ -45,7 +45,7 @@ body .charactersheet h1 em {
     grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 .col3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 3fr 1fr;
 }
 .col3-binding {
     grid-template: auto 2fr / 3fr 3fr 1fr;
@@ -54,11 +54,20 @@ body .charactersheet h1 em {
 .col4 {
     grid-template-columns: 1fr 1fr 1fr 1fr 30px;
 }
+.col4-buttons {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .col5 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
-.col6 {
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+.col5-skills {
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr 40px;
+}
+.col6-weapons {
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr 60px 60px;
+}
+.col6-equipment {
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr;
 }
 .col4-name {
     grid-template: auto 2fr / 3fr 1fr 1fr 1fr;
@@ -94,7 +103,6 @@ body .charactersheet div .grid.col4-name input,
 body .charactersheet div .grid.col3-binding input {
     color: black;
     font-size: 20px;
-    font-weight: bold;
 }
 
 .charsheet button[type="roll"]::before {
@@ -128,6 +136,66 @@ body .charactersheet div .grid.col3-binding input {
     font-family: "DM Mono", serif;
     content: "Reaction";
     font-size: 16px;
+}
+
+.charsheet button[type="roll"].dodgeevade:before {
+    font-family: "DM Mono", serif;
+    content: "Evade Dodge";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].dodgeacro:before {
+    font-family: "DM Mono", serif;
+    content: "Acrobatics Dodge";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].dodgedex:before {
+    font-family: "DM Mono", serif;
+    content: "Dex Dodge";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].dodgecr:before {
+    font-family: "DM Mono", serif;
+    content: "CR Dodge";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].parryguard:before {
+    font-family: "DM Mono", serif;
+    content: "Guard Parry";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].parrybrawl:before {
+    font-family: "DM Mono", serif;
+    content: "Brawl Parry";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].grappleatk:before {
+    font-family: "DM Mono", serif;
+    content: "Grapple Attack";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].grappleesc:before {
+    font-family: "DM Mono", serif;
+    content: "Grapple Escape";
+    font-size: 16px;
+}
+
+.charsheet button[type="roll"].weapatk:before {
+    font-family: "DM Mono", serif;
+    content: "Attack";
+    font-size: 12px;
+}
+
+.charsheet button[type="roll"].weappar:before {
+    font-family: "DM Mono", serif;
+    content: "Parry";
+    font-size: 12px;
 }
 
 .col2-stats label {
