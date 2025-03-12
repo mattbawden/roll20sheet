@@ -61,10 +61,10 @@ body .charactersheet h1 em {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 .col5-skills {
-    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr 40px;
+    grid-template-columns: 3fr 3fr 1fr 1fr 1fr 1fr 40px;
 }
 .col6-weapons {
-    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr 60px 60px;
+    grid-template-columns: 3fr 3fr 1fr 1fr 1fr 1fr 60px 60px;
 }
 .col6-equipment {
     grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr;
