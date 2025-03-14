@@ -17,12 +17,12 @@
 
     <div class="grid col2">
         <div class="grid col1">
-            <h2>Attributes</h2>
+            <h2>Quality Assurances</h2>
             <div class="grid col2-stats">
                 <div class="flex">
-                    <label>INT</label>
-                    <input type="number" name="attr_intelligence" value="0" />
-                    <button type="roll" name="roll_intelligence" value="&{template:default} {{name=Attribute | Intelligence}} {{Check Result=[[1d20 + (@{Intelligence}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
+                    <label>ATT</label>
+                    <input type="number" name="attr_attentiveness" value="0" />
+                    <button type="roll" name="roll_attentiveness" value="&{template:custom} {{standardroll=true}} {{title=Quality | Attentiveness}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
                 </div>
 
                 <div class="flex">
@@ -502,11 +502,13 @@
             {{/allprops() title subtitle desc color standardroll attackroll critroll pursuitroll reactionroll dodgeroll parryroll grappleatkroll grappleescroll}}
             {{#standardroll}}
                 {{#Result}}<div class="sheet-result">
-                    {{#rollLess() Result 1}}<span class="sheet-mishap">Mishap!</span>{{/rollLess() Result 1}}
-                    {{#rollBetween() Result 1 5}}<span class="sheet-failure">Failure</span>{{/rollBetween() Result 1 5}}
-                    {{#rollBetween() Result 6 10}}<span class="sheet-partialsuccess">Partial Success</span>{{/rollBetween() Result 6 10}}
-                    {{#rollBetween() Result 11 19}}<span class="sheet-fullsuccess">Full Success</span>{{/rollBetween() Result 11 19}}
-                    {{#rollGreater() Result 19}}<span class="sheet-critical">Critical!</span>{{/rollGreater() Result 19}}
+                    {{#rollLess() Result 1}}<span class="sheet-mishap">Failure! Add 6 Chaos to pool</span>{{/rollLess() Result 1}}
+                    {{#rollTotal() Result 1}}<span class="sheet-fullsuccess">Success, add 5 Chaos to pool</span>{{/rollTotal() Result 1}}
+                    {{#rollTotal() Result 2}}<span class="sheet-fullsuccess">Success, add 4 Chaos to pool</span>{{/rollTotal() Result 2}}
+                    {{#rollTotal() Result 3}}<span class="sheet-critical">Triscendence! No Chaos is added</span>{{/rollTotal() Result 3}}
+                    {{#rollTotal() Result 4}}<span class="sheet-fullsuccess">Success, add 2 Chaos to pool</span>{{/rollTotal() Result 4}}
+                    {{#rollTotal() Result 5}}<span class="sheet-fullsuccess">Success, add 1 Chaos to pool</span>{{/rollTotal() Result 5}}
+                    {{#rollTotal() Result 6}}<span class="sheet-fullsuccess">Success, no Chaos is added</span>{{/rollTotal() Result 6}}
                 </div>{{/Result}}
             {{/standardroll}}
             {{^standardroll}}
