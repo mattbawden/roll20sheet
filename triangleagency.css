@@ -222,6 +222,7 @@ body .charactersheet div .grid.col3-binding input {
 }
 .col2-arc img {
     height: 50px;
+    padding-left: 1em;
 }
 
 .col5 label {
