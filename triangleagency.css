@@ -39,6 +39,9 @@ body .charactersheet h1 em {
     gap: 30px;
     justify-items: center;
 }
+.col1-arc {
+    grid-template-rows: repeat(3, 1fr);
+}
 .col2 {
     grid-template-columns: repeat(2, 1fr);
 }
