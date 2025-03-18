@@ -119,7 +119,7 @@ body .charactersheet div .grid.col3-binding input {
 }
 
 .charsheet button[type="roll"]::before {
-    font-family: "dicefontd20";
+    font-family: "dicefontd4";
     content: "K";
     font-size: 20px;
 }
