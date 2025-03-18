@@ -57,6 +57,9 @@ body .charactersheet h1 em {
 .col3 {
     grid-template-columns: 2fr 3fr 1fr;
 }
+.col3-qa {
+    grid-template-columns: 1fr 1fr 1fr;
+}
 .col3-binding {
     grid-template: auto 2fr / 3fr 3fr 1fr;
     grid-auto-flow: column;

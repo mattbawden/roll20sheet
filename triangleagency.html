@@ -73,96 +73,11 @@
         </div>
         <div class="grid col1">
             <h2>Quality Assurances</h2>
-            <div class="grid col2-stats">
-                <div class="flex">
-                    <label>ATT</label>
-                    <input type="number" name="attr_attentiveness" value="0" />
-                    <button type="roll" name="roll_attentiveness" value="&{template:custom} {{standardroll=true}} {{title=Quality | Attentiveness}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
-                </div>
-
-                <div class="flex">
-                    <label>PER</label>
-                    <input type="number" name="attr_perception" value="0" />
-                    <button type="roll" name="roll_perception" value="&{template:default} {{name=Attribute | Perception}} {{Check Result=[[1d20 + (@{Perception}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-
-                <div class="flex">
-                    <label>WIL</label>
-                    <input type="number" name="attr_will" value="0" />
-                    <button type="roll" name="roll_will" value="&{template:default} {{name=Attribute | Will}} {{Check Result=[[1d20 + (@{Will}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-                
-                <div class="flex">
-                    <label>CHA</label>
-                    <input type="number" name="attr_charisma" value="0" />
-                    <button type="roll" name="roll_charisma" value="&{template:default} {{name=Attribute | Charisma}} {{Check Result=[[1d20 + (@{Charisma}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-
-                <div class="flex">
-                    <label>STR</label>
-                    <input type="number" name="attr_strength" value="0" />
-                    <button type="roll" name="roll_strength" value="&{template:default} {{name=Attribute | Strength}} {{Check Result=[[1d20 + (@{Strength}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-
-                <div class="flex">
-                    <label>DEX</label>
-                    <input type="number" name="attr_dexterity" value="0" />
-                    <button type="roll" name="roll_dexterity" value="&{template:default} {{name=Attribute | Dexterity}} {{Check Result=[[1d20 + (@{Dexterity}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-
-                <div class="flex">
-                    <label>CON</label>
-                    <input type="number" name="attr_constitution" value="0" />
-                    <button type="roll" name="roll_constitution" value="&{template:default} {{name=Attribute | Constitution}} {{Check Result=[[1d20 + (@{Constitution}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-
-                <div class="flex">
-                    <label>SPD</label>
-                    <input type="number" name="attr_speed" value="0" />
-                    <button type="roll" name="roll_speed" value="&{template:default} {{name=Attribute | Speed}} {{Check Result=[[1d20 + (@{Speed}*2) [Attribute] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{--------=--------}} {{Critical=20+}} {{Full=11-19}} {{Partial=6-10}} {{Failure=1-5}} {{Mishap=0 or below}}" />
-                </div>
-
-                <div class="flex">
-                    <label>CCR</label>
-                    <input type="number" name="attr_combatrating" value="0" />
-                </div>
-
-                <div class="flex">
-                    <label>RCR</label>
-                    <input type="number" name="attr_rangedcr" value="0" />
-                </div>
-
-                <div class="flex">
-                    <label>MMR</label>
-                    <input type="number" name="attr_magicrating" value="0" />
-                </div>
+            <div class="grid col3-qa">
+                <label>ATT</label>
+                <input type="number" name="attr_attentiveness" value="0" />
+                <button type="roll" name="roll_attentiveness" value="&{template:custom} {{standardroll=true}} {{title=Quality | Attentiveness}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
             </div>
-        </div>
-    </div>
-
-    <div class="grid col1">
-        <div class="grid col5">
-            <label>Hit Points</label>
-            
-
-            <label>Movement Rate</label>
-           
-
-            <label>Protection Rating</label>
-            
-
-            <label>Current Lethal Damage</label>
-            
-
-            <label>Current Subdual Damage</label>
-            
-        </div>
-        <div class="grid col5">
-            <input type="number" name="attr_charhp" value="0" />
-            <input type="number" name="attr_movementrate" value="50" />
-            <input type="number" name="attr_charpr" value="0" />
-            <input type="number" name="attr_charlethal" value="0" />
-            <input type="number" name="attr_charsubdual" value="0" />
         </div>
     </div>
 
