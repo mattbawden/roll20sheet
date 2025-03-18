@@ -58,7 +58,7 @@ body .charactersheet h1 em {
     grid-template-columns: 2fr 3fr 1fr;
 }
 .col3-qa {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 40px;
 }
 .col3-binding {
     grid-template: auto 2fr / 3fr 3fr 1fr;
@@ -121,6 +121,7 @@ body .charactersheet div .grid.col3-binding input {
 .charsheet button[type="roll"].sheet-d4-dice::before {
     font-family: "dicefontd4";
     content: "K";
+    font-size: 30px;
 }
 
 .charsheet button[type="roll"].initiative:before {
