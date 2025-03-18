@@ -73,243 +73,25 @@
         </div>
         <div class="grid col1">
             <h2>Quality Assurances</h2>
-            <div class="grid col3-qa">
+            <div class="grid col4-qa">
+                <label></label>
+                <label>Max</label>
+                <label>Current</label>
+                <label>Roll</label>
+            </div>
+            <div class="grid col4-qa">
                 <label>Attentiveness</label>
+                <input type="number" name="attr_attentivenessmax" value="0" />
                 <input type="number" name="attr_attentiveness" value="0" />
                 <button class="sheet-d4-dice" type="roll" name="roll_attentiveness" value="&{template:custom} {{standardroll=true}} {{title=Quality | Attentiveness}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
             </div>
-        </div>
-    </div>
-
-    <div class="grid special-buttons">
-        <h2>Attribute Actions</h2>
-        <div class="grid col4-buttons">
-            <button type="roll" name="roll_initiative" class="initiative" value="&{template:custom} {{title=Initiative}} {{subtitle=@{charactername}}} {{Initiative Total=[[1d20 + (@{speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] &{tracker}]]}}" />
-            <button type="roll" name="roll_critical" class="critical" value="&{template:custom} {{critroll=true}} {{title=Critical Hit}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{constitution}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DR or Attack|0} [Damage]]]}}" />
-            <button type="roll" name="roll_chase" class="chase" value="&{template:custom} {{pursuitroll=true}} {{title=Pursuit}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{speed}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}} {{Movement Rate=@{movementrate} ft.}}" />
-            <button type="roll" name="roll_reaction" class="reaction" value="&{template:custom} {{reactionroll=true}} {{title=Reaction}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{charisma}*2) [Attribute] + ?{Modifiers?|0} [Modifiers]]]}}" />
-        </div>
-    </div>
-
-    <div class="grid special-buttons">
-        <h2>Combat Tactics</h2>
-        <div class="grid col4-buttons">
-            <input type="hidden" name="attr_charEvade" value="0" />
-            <input type="hidden" name="attr_charAcrobatics" value="0" />
-            <input type="hidden" name="attr_charGuard" value="0" />
-            <input type="hidden" name="attr_charBrawl" value="0" />
-            <button type="roll" name="roll_grappleatk" class="grappleatk" value="&{template:custom} {{grappleatkroll=true}} {{title=Grapple Attack}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{combatrating}) [Attribute] + @{charBrawl} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_grappleesc" class="grappleesc" value="&{template:custom} {{grappleescroll=true}} {{title=Grapple Escape}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{combatrating}) [Attribute] + @{charBrawl} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_guard" class="parryguard" value="&{template:custom} {{parryroll=true}} {{title=Guard Parry}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{perception}) [Attribute] + @{charGuard} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_brawlparry" class="parrybrawl" value="&{template:custom} {{parryroll=true}} {{title=Brawl Parry}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}) [Attribute] + @{charBrawl} [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_evade" class="dodgeevade" value="&{template:custom} {{dodgeroll=true}} {{title=Evade Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}) [Attribute] + @{charEvade} [Skill] + ?{Modifiers?|0} [Modifiers] + ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_acrododge" class="dodgeacro" value="&{template:custom} {{dodgeroll=true}} {{title=Acrobatics Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}) [Attribute] + @{charAcrobatics} - 5 [Skill] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_dexdodge" class="dodgedex" value="&{template:custom} {{dodgeroll=true}} {{title=Dex Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{dexterity}*2) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-            <button type="roll" name="roll_crdodge" class="dodgecr" value="&{template:custom} {{dodgeroll=true}} {{title=CR Dodge}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{combatrating}) [Attribute] + ?{Modifiers?|0} [Modifiers] - ?{DoD|0} [DoD] ]]}}" />
-        </div>
-    </div>
-
-    <div class="grid col1-skills">
-        <h2>Skills</h2>
-        <div class="grid col5-skills">
-            <label>Name</label>
-
-            <label>Subskill</label>
-
-            <label>Stat</label>
-
-            <label>Rank</label>
-
-            <label>Inherent Mod</label>
-
-            <label>Item Mod</label>
-        </div>
-        <fieldset class="repeating_skills">
-            <div class="grid col5-skills">
-                <select name="attr_skillname">
-                    <option value="">Choose</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; COMMON</option>
-                    <option value="climbing">Climbing</option>
-                    <option value="conveyance">Conveyance</option>
-                    <option value="cook">Cook</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="haggle">Haggle</option>
-                    <option value="ride">Ride</option>
-                    <option value="signal">Signal</option>
-                    <option value="swim">Swim</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; LANGUAGE</option>
-                    <option value="hightalislan">High Talislan</option>
-                    <option value="lowtalislan">Low Talislan</option>
-                    <option value="archaen">Archaen</option>
-                    <option value="bodorian">Bodorian</option>
-                    <option value="chanan">Chanan</option>
-                    <option value="elder">Elder</option>
-                    <option value="nomadic">Nomadic</option>
-                    <option value="northron">Northron</option>
-                    <option value="phaedran">Phaedran</option>
-                    <option value="quan">Quan</option>
-                    <option value="racialtongues">Racial Tongues</option>
-                    <option value="rajanin">Rajanin</option>
-                    <option value="sarisa">Sarisa</option>
-                    <option value="seanomad">Sea Nomad</option>
-                    <option value="sign">Sign</option>
-                    <option value="thaecian">Thaecian</option>
-                    <option value="xambrian">Xambrian</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; COMBAT</option>
-                    <option value="artillerist">Artillerist</option>
-                    <option value="assassinate">Assassinate</option>
-                    <option value="brawling">Brawling</option>
-                    <option value="command">Command</option>
-                    <option value="evade">Evade</option>
-                    <option value="guard">Guard</option>
-                    <option value="tactics">Tactics</option>
-                    <option value="bow">Bow</option>
-                    <option value="crossbow">Crossbow</option>
-                    <option value="spring">Spring</option>
-                    <option value="thrown">Thrown</option>
-                    <option value="smallblades">Small Blades</option>
-                    <option value="largeblades">Large Blades</option>
-                    <option value="hafted">Hafted</option>
-                    <option value="2hblades">2H Blades</option>
-                    <option value="2hhafted">2H Hafted</option>
-                    <option value="flails">Flails</option>
-                    <option value="polearms">Polearms</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; PERFORMING</option>
-                    <option value="acrobatics">Acrobatics</option>
-                    <option value="acting">Acting</option>
-                    <option value="art">Art</option>
-                    <option value="dance">Dance</option>
-                    <option value="legerdemain">Legerdemain</option>
-                    <option value="mimicry">Mimicry</option>
-                    <option value="oratory">Oratory</option>
-                    <option value="song">Song</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; SCHOLARLY</option>
-                    <option value="analysis">Analysis</option>
-                    <option value="anatomy">Anatomy</option>
-                    <option value="antiquarian">Antiquarian</option>
-                    <option value="arcanelore">Arcane Lore</option>
-                    <option value="astrology">Astrology</option>
-                    <option value="cartography">Cartography</option>
-                    <option value="cultures">Cultures</option>
-                    <option value="cryptography">Cryptography</option>
-                    <option value="doctrines">Doctrines</option>
-                    <option value="engineer">Engineer</option>
-                    <option value="gamecraft">Gamecraft</option>
-                    <option value="geography">Geography</option>
-                    <option value="history">History</option>
-                    <option value="linguistics">Linguistics</option>
-                    <option value="litigator">Litigator</option>
-                    <option value="meditation">Meditation</option>
-                    <option value="naturalism">Naturalism</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; THIEVING</option>
-                    <option value="bribe">Bribe</option>
-                    <option value="coerce">Coerce</option>
-                    <option value="deception">Deception</option>
-                    <option value="disabledevice">Disable Device</option>
-                    <option value="espionage">Espionage</option>
-                    <option value="forgery">Forgery</option>
-                    <option value="gambling">Gambling</option>
-                    <option value="interrogate">Interrogate</option>
-                    <option value="legerdemain">Legerdemain</option>
-                    <option value="lipreading">Lip-Reading</option>
-                    <option value="sabotage">Sabotage</option>
-                    <option value="seduce">Seduce</option>
-                    <option value="stealth">Stealth</option>
-                    <option value="streetwise">Streetwise</option>
-                    <option value="torture">Torture</option>
-                    <option value="traps">Traps</option>
-                    <option value="underworld">Underworld</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; TRADE</option>
-                    <option value="administrator">Administrator</option>
-                    <option value="agriculture">Agriculture</option>
-                    <option value="animalhandler">Animal Handler</option>
-                    <option value="appraiser">Appraiser</option>
-                    <option value="caravanmaster">Caravan Master</option>
-                    <option value="fishing">Fishing</option>
-                    <option value="handicraft">Handicraft</option>
-                    <option value="healer">Healer</option>
-                    <option value="laborer">Laborer</option>
-                    <option value="livestock">Livestock</option>
-                    <option value="merchant">Merchant</option>
-                    <option value="mining">Mining</option>
-                    <option value="pilot">Pilot</option>
-                    <option value="salvager">Salvager</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; WILDERNESS</option>
-                    <option value="guide">Guide</option>
-                    <option value="herblore">Herb Lore</option>
-                    <option value="mimicry">Mimicry</option>
-                    <option value="scout">Scout</option>
-                    <option value="tracking">Tracking</option>
-                    <option value="traps">Traps</option>
-                    <option value="survival">Survival</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; MAGICAL</option>
-                    <option value="alchemy">Alchemy</option>
-                    <option value="botanomancy">Botanomancy</option>
-                    <option value="modeattack">Mode (attack)</option>
-                    <option value="modeconjuration">Mode (conjuration)</option>
-                    <option value="modedivination">Mode (divination)</option>
-                    <option value="modeenchantment">Mode (enchantment)</option>
-                    <option value="modeinfluence">Mode (influence)</option>
-                    <option value="modeillusion">Mode (illusion)</option>
-                    <option value="modemove">Mode (move)</option>
-                    <option value="modetransmutation">Mode (transmutation)</option>
-                    <option value="modeward">Mode (ward)</option>
-                    <option value="talismancy">Talismancy</option>
-                    <option value="technomancy">Technomancy</option>
-                    <option value="thamaturgy">Thamaturgy</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white;">&nbsp;&nbsp;&nbsp;&nbsp; SPECIAL</option>
-                    <option value="beastlore">Beast Lore</option>
-                    <option value="dispelmagic">Dispel Magic</option>
-                    <option value="influenceplants">Influence Plants</option>
-                    <option value="naturaltelempathy">Natural Telempathy</option>
-                    <option value="rhabdomancy">Rhabdomancy</option>
-                    <option value="shapechange">Shapechange</option>
-                </select>
-
-                <input type="text" name="attr_subskill" value="" />
-
-                <select name="attr_abilityscore">
-                    <option value="@{intelligence}">INT</option>
-                    <option value="@{perception}">PER</option>
-                    <option value="@{will}">WIL</option>
-                    <option value="@{charisma}">CHA</option>
-                    <option value="@{strength}">STR</option>
-                    <option value="@{dexterity}">DEX</option>
-                    <option value="@{constitution}">CON</option>
-                    <option value="@{speed}">SPD</option>
-                    <option value="@{combatrating}">CCR</option>
-                    <option value="@{rangedcr}">RCR</option>
-                    <option value="@{magicrating}">MMR</option>
-                </select>
-
-                <!--
-                <input type="text" list="abilityScores" name="attr_abilityscore">
-                <datalist id="abilityScores">Attribute
-                    <option value="@{Intelligence}">INT</option>
-                    <option value="@(Perception)">PER</option>
-                    <option value="@{Will}">WIL</option>
-                    <option value="@{Charisma}">CHA</option>
-                    <option value="@{Strength}">STR</option>
-                    <option value="@{Dexterity}">DEX</option>
-                    <option value="@{Constitution}">CON</option>
-                    <option value="@{Speed}">SPD</option>
-                    <option value="@{combatrating}">CCR</option>
-                    <option value="@{rangedcr}">RCR</option>
-                    <option value="@{magicrating}">MMR</option>
-                </datalist>
-                -->
-
-                <input type="number" name="attr_skillrank" value="0" />
-
-                <input type="hidden" name="attr_skillrating" value="0" />
-
-                <input type="number" name="attr_inherentmod" value="0" />
-
-                <input type="number" name="attr_itemmod" value="0" />
-
-                <button type="roll" name="roll_skill" value="&{template:custom} {{standardroll=true}} {{title=Skill | @{skillname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + (@{abilityscore}) [Attribute] + @{skillrank} [Skill] + @{inherentmod} [Inherent Mod] + @{itemmod} [Item Mod] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}}" />
+            <div class="grid col4-qa">
+                <label>Duplicity</label>
+                <input type="number" name="attr_duplicitymax" value="0" />
+                <input type="number" name="attr_duplicity" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_duplicity" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
             </div>
-        </fieldset>
+        </div>
     </div>
 
     <div class="grid col1-quirks">
