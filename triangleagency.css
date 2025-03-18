@@ -217,6 +217,9 @@ body .charactersheet div .grid.col3-binding input {
     background-color: black;
     color: gold;
 }
+.col2-arc img {
+    height: 50px;
+}
 
 .col5 label {
     font-size: 16px;
