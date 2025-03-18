@@ -57,6 +57,9 @@ body .charactersheet h1 em {
 .col3 {
     grid-template-columns: 2fr 3fr 1fr;
 }
+.col3-other {
+    grid-template-columns: 40px 1fr 3fr;
+}
 .col4-qa {
     grid-template-columns: 3fr 1fr 1fr 40px;
 }
