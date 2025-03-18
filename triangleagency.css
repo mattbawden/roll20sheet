@@ -118,10 +118,9 @@ body .charactersheet div .grid.col3-binding input {
     font-size: 20px;
 }
 
-.charsheet button[type="roll"]::before {
+.charsheet button[type="roll"].sheet-d4-dice::before {
     font-family: "dicefontd4";
     content: "K";
-    font-size: 20px;
 }
 
 .charsheet button[type="roll"].initiative:before {
