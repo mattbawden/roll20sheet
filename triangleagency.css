@@ -52,7 +52,7 @@ body .charactersheet h1 em {
     grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 .col2-arc {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 3fr;
 }
 .col3 {
     grid-template-columns: 2fr 3fr 1fr;
