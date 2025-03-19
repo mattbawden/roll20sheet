@@ -63,18 +63,52 @@
     </div>
 
     <div class="grid col2">
-        <div class="grid col3-other">
-            <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/commendationlogo.png" />
-            <input type="number" name="attr_commendations" value="0" />
-            <label>Commendations</label>
-            <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/demeritlogo.png" />
-            <input type="number" name="attr_demerits" value="0" />
-            <label>Demerits</label>
-            <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/burnoutlogo.png" />
-            <input type="number" name="attr_addburnout" value="0" />
-            <label>Additional Burnout</label>
-        </div>
         <div class="grid col1">
+            <div class="grid col3-other">
+                <div class="grid col1-other">
+                    <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/commendationlogo.png" />
+                    <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/demeritlogo.png" />
+                    <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/burnoutlogo.png" />
+                </div>
+                <div class="grid col1-other">
+                    <input type="number" name="attr_commendations" value="0" />
+                    <input type="number" name="attr_demerits" value="0" />
+                    <input type="number" name="attr_addburnout" value="0" />
+                </div>
+                <div class="grid col1-other">
+                    <label>Commendations</label>
+                    <label>Demerits</label>
+                    <label>Additional Burnout</label>
+                </div>
+            </div>
+            <div class="grid col1-stats">
+                <h2 class="yellow-text">Reality Trigger</h2>
+                <label>Your GM may trigger this by spending 3 Chaos.</label>
+                <textarea name="attr_realitytrigger"></textarea>
+                <h2 class="yellow-text">Burnout Release</h2>
+                <label>Check this to see if you can cancel your burnout.</label>
+                <textarea name="attr_burnoutrelease"></textarea>
+                <h2 class="red-text">Prime Directive</h2>
+                <label>Recieve 1 Demerit if you:</label>
+                <textarea name="attr_primedirective"></textarea>
+                <h2 class="red-text">Sanctioned Behaviors</h2>
+                <label>Recieve 1 Commendation when you do one of these:</label>
+                <div class="grid col2-sanctions">
+                    <div class="grid col1-other">
+                        <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/sanctionlogo.png" />
+                        <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/sanctionlogo.png" />
+                        <img src="https://raw.githubusercontent.com/mattbawden/roll20sheet/main/sanctionlogo.png" />
+                    </div>
+                    <div class="grid col1-other">
+                        <input type="text" name="attr_sanctionedbehavior1" value="" />
+                        <input type="text" name="attr_sanctionedbehavior2" value="" />
+                        <input type="text" name="attr_sanctionedbehavior3" value="" />
+                    </div>
+                </div>
+                <label>If you do all 3 in a single mission, receive 3 bonus Commendations.</label>
+            </div>
+        </div>
+        <div class="grid col1-qa">
             <h2>Quality Assurances</h2>
             <div class="grid col4-qa">
                 <label></label>
@@ -94,11 +128,53 @@
                 <input type="number" name="attr_duplicity" value="0" />
                 <button class="sheet-d4-dice" type="roll" name="roll_duplicity" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
             </div>
+            <div class="grid col4-qa">
+                <label>Dynamism</label>
+                <input type="number" name="attr_dynamismmax" value="0" />
+                <input type="number" name="attr_dynamism" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_dynamism" value="&{template:custom} {{standardroll=true}} {{title=Quality | Dynamism}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
+            <div class="grid col4-qa">
+                <label>Empathy</label>
+                <input type="number" name="attr_empathymax" value="0" />
+                <input type="number" name="attr_empathy" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_empathy" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
+            <div class="grid col4-qa">
+                <label>Initiative</label>
+                <input type="number" name="attr_initiativemax" value="0" />
+                <input type="number" name="attr_initiative" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_initiative" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
+            <div class="grid col4-qa">
+                <label>Persistence</label>
+                <input type="number" name="attr_persistencemax" value="0" />
+                <input type="number" name="attr_persistence" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_persistence" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
+            <div class="grid col4-qa">
+                <label>Presence</label>
+                <input type="number" name="attr_presencemax" value="0" />
+                <input type="number" name="attr_presence" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_presence" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
+            <div class="grid col4-qa">
+                <label>Professionalism</label>
+                <input type="number" name="attr_professionalismmax" value="0" />
+                <input type="number" name="attr_professionalism" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_professionalism" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
+            <div class="grid col4-qa">
+                <label>Subtlety</label>
+                <input type="number" name="attr_subtletymax" value="0" />
+                <input type="number" name="attr_subtlety" value="0" />
+                <button class="sheet-d4-dice" type="roll" name="roll_subtlety" value="&{template:custom} {{standardroll=true}} {{title=Quality | Duplicity}} {{subtitle=@{charactername}}} {{Result=[[6d4=3]]}}" />
+            </div>
         </div>
     </div>
 
     <div class="grid col1-quirks">
-        <h2>Quirks</h2>
+        <h2>Anomaly Abilities</h2>
         <div class="grid col3">
             <label>Quirk</label>
 
@@ -117,119 +193,6 @@
                     <option value="positive">Positive</option>
                     <option value="negative">Negative</option>
                 </select>
-            </div>
-        </fieldset>
-    </div>
-
-    <div class="grid col1-weapons">
-        <h2>Combat Weapons</h2>
-        <div class="grid col6-weapons">
-            <label>Name</label>
-
-            <label>Skill Type</label>
-
-            <label>Stat</label>
-
-            <label>Rank</label>
-
-            <label>Item Mod</label>
-
-            <label>DR</label>
-        </div>
-        <fieldset class="repeating_weapons">
-            <div class="grid col6-weapons">
-                <input type="text" name="attr_weaponname" value="" />
-
-                <select name="attr_skilltype">
-                    <option value="">Choose</option>
-                    <option value="bow">Bow</option>
-                    <option value="crossbow">Crossbow</option>
-                    <option value="spring">Spring</option>
-                    <option value="thrown">Thrown</option>
-                    <option value="smallblades">Small Blades</option>
-                    <option value="largeblades">Large Blades</option>
-                    <option value="hafted">Hafted</option>
-                    <option value="2hblades">2H Blades</option>
-                    <option value="2hhafted">2H Hafted</option>
-                    <option value="flails">Flails</option>
-                    <option value="polearms">Polearms</option>
-                    <option value="brawling">Brawling</option>
-                    <option value="assassinate">Assassinate</option>
-                </select>
-
-                <select name="attr_weaponstat">
-                    <option value="@{combatrating}">CCR</option>
-                    <option value="@{rangedcr}">RCR</option>
-                </select>
-
-                <!--
-                <input type="text" list="abilityScores" name="attr_weaponstat">
-                <datalist id="abilityScores">Attribute
-                    <option value="@{combatrating}">CCR</option>
-                    <option value="@{rangedcr}">RCR</option>
-                </datalist>
-                -->
-
-                <input type="number" name="attr_weaponskillrank" value="0" />
-
-                <input type="number" name="attr_weaponitemmod" value="0" />
-
-                <input type="number" name="attr_weapondr" value="0" />
-
-                <button type="roll" name="roll_attack" class="weapatk" value="&{template:custom} {{attackroll=true}} {{title=Attack | @{weaponname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + @{weaponstat} [Attribute] + @{weaponskillrank} [Skill] + @{weaponitemmod} [Item Mod] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}} {{Base Damage=[[@{weapondr}]]}} {{Strength Damage=[[@{strength}]]}}" />
-            
-                <button type="roll" name="roll_parry" class="weappar" value="&{template:custom} {{parryroll=true}} {{title=Parry | @{weaponname}}} {{subtitle=@{charactername}}} {{Result=[[1d20 + @{weaponstat} [Attribute] + @{weaponskillrank} [Skill] + @{weaponitemmod} [Item Mod] + ?{Modifiers? Multiple Actions(-5)?|0} [Modifiers] - ?{DoD|0} [DoD]]]}}" />
-            </div>
-        </fieldset>
-    </div>
-
-    <div class="grid col1-equipment">
-        <h2>Equipment</h2>
-        <div class="grid col6-equipment">
-            <label>Name</label>
-
-            <label>Type</label>
-
-            <label>Min STR</label>
-
-            <label>DR/PR</label>
-
-            <label>Max DR</label>
-
-            <label>Range</label>
-        </div>
-        <fieldset class="repeating_equipment">
-            <div class="grid col6-equipment">
-                <input type="text" name="attr_equipname" value="" />
-
-                <select name="attr_equiptype">
-                    <option value="">Choose</option>
-                    <option value="general">General</option>
-                    <option value="parry">Parry</option>
-                    <option value="armour">Armour</option>
-                    <option value="bow">Bow</option>
-                    <option value="crossbow">Crossbow</option>
-                    <option value="spring">Spring</option>
-                    <option value="thrown">Thrown</option>
-                    <option value="smallblades">Small Blades</option>
-                    <option value="largeblades">Large Blades</option>
-                    <option value="hafted">Hafted</option>
-                    <option value="2hblades">2H Blades</option>
-                    <option value="2hhafted">2H Hafted</option>skillname
-                    <option value="flails">Flails</option>
-                    <option value="polearms">Polearms</option>
-                    <option value="brawling">Brawling</option>
-                    <option value="assassinate">Assassinate</option>
-                    <option value="unique">Special Equipment</option>
-                </select>
-
-                <input type="number" name="attr_minstr" value="" />
-
-                <input type="number" name="attr_drpr" value="" />
-
-                <input type="number" name="attr_maxdr" value="" />
-
-                <input type="number" name="attr_range" value="" />
             </div>
         </fieldset>
     </div>

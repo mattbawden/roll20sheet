@@ -39,8 +39,19 @@ body .charactersheet h1 em {
     gap: 30px;
     justify-items: center;
 }
+
+.col1-qa {
+    padding-left: 1em;
+}
 .col1-arc {
     grid-template-rows: repeat(3, 1fr);
+}
+.col1-other {
+    grid-template-rows: repeat(3, 1fr);
+    font-size: 20px;
+}
+.col1-stats {
+    padding-top: 1em;
 }
 .col2 {
     grid-template-columns: repeat(2, 1fr);
@@ -59,6 +70,7 @@ body .charactersheet h1 em {
 }
 .col3-other {
     grid-template-columns: 40px 1fr 3fr;
+    padding-top: 6px;
 }
 .col4-qa {
     grid-template-columns: 3fr 1fr 1fr 40px;
@@ -214,6 +226,39 @@ body .charactersheet div .grid.col3-binding input {
     font-size: 12px;
 }
 
+.col1 label {
+    font-size: 22px;
+    line-height: 22px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.col1-qa h2 {
+    font-size: 24px;
+    line-height: 24px;
+    width: fit-content;
+}
+
+.col1-stats h2.yellow-text {
+    font-size: 18px;
+    line-height: 18px;
+    width: fit-content;
+    color: goldenrod;
+}
+
+.col1-stats h2.red-text {
+    font-size: 18px;
+    line-height: 18px;
+    width: fit-content;
+    color: red;
+}
+
+.col1-stats label {
+    font-size: 14px;
+    line-height: 14px;
+    width: fit-content;
+}
+
 .col2-stats label {
     font-size: 20px;
     line-height: 20px;
@@ -229,6 +274,10 @@ body .charactersheet div .grid.col3-binding input {
 .col2-arc img {
     height: 50px;
     padding-left: 1em;
+}
+
+.col3-other img {
+    height: 24px;
 }
 
 .col5 label {
