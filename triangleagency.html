@@ -83,7 +83,7 @@
             </div>
             <div class="grid col1-stats">
                 <h2 class="yellow-text">Reality Trigger</h2>
-                <label>Your GM may trigger this by spending 3 Chaos.</label>
+                <label>Your GM may trigger this by spending <span style="color: red">3</span> Chaos.</label>
                 <textarea name="attr_realitytrigger"></textarea>
                 <h2 class="yellow-text">Burnout Release</h2>
                 <label>Check this to see if you can cancel your burnout.</label>
@@ -105,7 +105,7 @@
                         <input type="text" name="attr_sanctionedbehavior3" value="" />
                     </div>
                 </div>
-                <label>If you do all 3 in a single mission, receive 3 bonus Commendations.</label>
+                <label>If you do all 3 in a single mission, receive <span style="color: red">3</span> bonus Commendations.</label>
             </div>
         </div>
         <div class="grid col1-qa">
@@ -173,26 +173,37 @@
         </div>
     </div>
 
-    <div class="grid col1-quirks">
-        <h2>Anomaly Abilities</h2>
-        <div class="grid col3">
-            <label>Quirk</label>
-
-            <label>Description</label>
-
-            <label>Type</label>
-        </div>
+    <div class="grid col1-anomalies">
+        <h2 class="blue-text">Anomaly Abilities</h2>
         <fieldset class="repeating_abilities">
-            <div class="grid col3">
-                <input type="text" name="attr_quirkname" value="" />
-
-                <input type="text" name="attr_quirkdesc" value="" />
-
-                <select name="attr_quirktype">
-                    <option value="">Choose</option>
-                    <option value="positive">Positive</option>
-                    <option value="negative">Negative</option>
-                </select>
+            <div class="col3-anomalies">
+                <div class="grid col3-anomalies-header">
+                    <label><span style="color:blue">Ability</span></label>
+                    <label><span style="color:blue">Trigger</span></label>
+                    <label><span style="color:blue">Quality</span></label>
+                </div>
+                <div class="grid col3-anomalies-details">
+                    <input type="text" name="attr_anomalyname" value="" />
+                    <input type="text" name="attr_anomalytrigger" value="" />
+                    <select name="attr_anomalyquality">
+                        <option value="">Choose</option>
+                        <option value="attentiveness">Attentiveness</option>
+                        <option value="duplicity">Duplicity</option>
+                        <option value="dynamism">Dynamism</option>
+                        <option value="empathy">Empathy</option>
+                        <option value="initiative">Initiative</option>
+                        <option value="persistence">Persistence</option>
+                        <option value="presence">Presence</option>
+                        <option value="professionalism">Professionalism</option>
+                        <option value="subtlety">Subtlety</option>
+                    </select>
+                </div>
+                <div class="grid col2-anomalies-outputs">
+                    <label><span style="color:blue">On a success,</span></label>
+                    <label><span style="color:red">On a failure,</span></label>
+                    <textarea name="attr_abilitysuccess"></textarea>
+                    <textarea name="attr_abilityfailure"></textarea>
+                </div>
             </div>
         </fieldset>
     </div>
